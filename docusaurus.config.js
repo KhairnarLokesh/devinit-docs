@@ -27,8 +27,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'devinit', // Usually your GitHub org/user name.
-  projectName: 'devinit-cli', // Usually your repo name.
+  organizationName: 'KhairnarLokesh', // Usually your GitHub org/user name.
+  projectName: 'DevInit', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -49,7 +49,7 @@ const config = {
           sidebarPath: './sidebars.js',
           routeBasePath: '/', // Serve the docs at the site's root
           editUrl:
-            'https://github.com/devinit-cli/docs/tree/main/',
+            'https://github.com/KhairnarLokesh/DevInit/tree/main/',
         },
         blog: false, // Disable the blog
         theme: {
@@ -82,7 +82,7 @@ const config = {
             label: 'Documentation',
           },
           {
-            href: 'https://github.com/devinit-cli',
+            href: 'https://github.com/KhairnarLokesh/DevInit',
             label: 'GitHub',
             position: 'right',
           },
@@ -109,7 +109,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/devinit-cli',
+                href: 'https://github.com/KhairnarLokesh/DevInit',
               },
             ],
           },
