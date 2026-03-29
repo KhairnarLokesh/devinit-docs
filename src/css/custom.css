@@ -1,49 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Global Design System: Paper Premium (Strict Monochrome)
  */
 
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #00d1ff;
-  --ifm-color-primary-dark: #00caee;
-  --ifm-color-primary-darker: #00b9db;
-  --ifm-color-primary-darkest: #00a4c2;
-  --ifm-color-primary-light: #33daff;
-  --ifm-color-primary-lighter: #4de0ff;
-  --ifm-color-primary-lightest: #80ebff;
-  --ifm-background-color: #040707;
-  --ifm-card-background-color: #111414;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 209, 255, 0.1);
+  --ifm-color-primary: #000000;
+  --ifm-background-color: #FFFFFF;
+  --ifm-card-background-color: #FFFFFF;
+  --ifm-font-color-base: #000000; /* Absolute Black for body text */
+  --ifm-heading-color: #000000;
+  --ifm-navbar-link-color: #000000;
+  --ifm-navbar-link-hover-color: #000000;
+  --ifm-breadcrumb-item-color-active: #000000;
+  --ifm-breadcrumb-color-active: #000000;
+  --ifm-footer-background-color: #FFFFFF;
+  --ifm-footer-color: #000000;
+  --ifm-footer-link-color: #333333;
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  --ifm-color-emphasis-100: #000000;
+  --ifm-color-emphasis-200: #000000;
+  --ifm-color-emphasis-300: #000000;
+  --ifm-color-emphasis-400: #000000;
+  --ifm-color-emphasis-500: #000000;
+  --ifm-color-emphasis-600: #000000;
+  --ifm-color-emphasis-700: #000000;
+  --ifm-color-emphasis-800: #000000;
+  --ifm-color-emphasis-900: #000000;
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #00d1ff;
-  --ifm-color-primary-dark: #00caee;
-  --ifm-color-primary-darker: #00b9db;
-  --ifm-color-primary-darkest: #00a4c2;
-  --ifm-color-primary-light: #33daff;
-  --ifm-color-primary-lighter: #4de0ff;
-  --ifm-color-primary-lightest: #80ebff;
-  --ifm-background-color: #040707;
-  --ifm-card-background-color: #111414;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 209, 255, 0.2);
+  --ifm-background-color: #FFFFFF;
+  --ifm-card-background-color: #F8F8F8;
+  --ifm-card-background-raised: #FFFFFF;
+  --ifm-border-color: #EAEAEA;
+  --ifm-toc-border-color: #EAEAEA;
+  --ifm-font-color-base: #000000;
 }
 
+/* Navbar: Crystal Surface */
 .navbar {
-  background-color: rgba(17, 20, 20, 0.8);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #EAEAEA;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
 }
 
-.footer {
-  background-color: #040707;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+.navbar__brand,
+.navbar__link {
+  color: #000000 !important;
+  font-weight: 600;
+}
+
+.navbar__link--active {
+  color: #000000 !important;
+  font-weight: 800;
+}
+
+/* Global Link Shadow Removal */
+.navbar__link--active::after {
+  display: none;
+}
+
+/* Sidebar: Architectural Line */
+.theme-doc-sidebar-container {
+  border-right: 1px solid #EAEAEA !important;
+}
+
+.menu__link {
+  color: #000000 !important;
+  font-weight: 500;
+  opacity: 0.7;
 }
 
 .menu__link--active {
-  background: linear-gradient(90deg, rgba(0, 209, 255, 0.1) 0%, transparent 100%);
-  border-left: 2px solid var(--ifm-color-primary);
+  color: #000000 !important;
+  background: rgba(0, 0, 0, 0.04) !important;
+  font-weight: 700;
+  opacity: 1;
+}
+
+/* Breadcrumbs & TOC: High Contrast Path */
+.breadcrumbs__link,
+.breadcrumbs__item,
+.table-of-contents__link {
+  color: #000000 !important;
+  font-weight: 600;
+}
+
+.breadcrumbs__item:not(.breadcrumbs__item--active)::after {
+  color: #000 !important;
+  opacity: 0.3;
+}
+
+/* Admonitions: Monochrome Overhaul */
+.admonition {
+  border: 1px solid #000 !important;
+  background-color: #FFF !important;
+  border-radius: 8px;
+  color: #000 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.admonition-icon svg {
+  fill: #000 !important;
+}
+
+.admonition-heading h5 {
+  color: #000 !important;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Tabs Visibility Fix */
+.tabs__item {
+  color: #000000 !important;
+  font-weight: 500;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+
+.tabs__item--active {
+  color: #000000 !important;
+  font-weight: 800;
+  opacity: 1;
+  border-bottom: 3px solid #000;
+}
+
+.tabs {
+  border-bottom: 1px solid #EAEAEA;
+  margin-bottom: 2rem;
+}
+
+/* Documentation Content */
+.markdown a {
+  color: #000;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.pagination-nav__link {
+  border: 1px solid #EAEAEA !important;
+  background: #FFF !important;
+}
+
+.pagination-nav__label,
+.pagination-nav__sublabel {
+  color: #000 !important;
+}
+
+/* Footer: Proper Paper (Force White/Black) */
+.footer {
+  background-color: #FFFFFF !important;
+  border-top: 1px solid #EAEAEA !important;
+  padding: 8rem 0 4rem;
+  color: #000000 !important;
+}
+
+.footer__title {
+  color: #000000 !important;
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.footer__link-item {
+  color: #444 !important;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  line-height: 2;
+}
+
+.footer__link-item:hover {
+  color: #000000 !important;
+  opacity: 0.6;
+}
+
+.footer__bottom {
+  border-top: 1px solid #F0F0F0;
+  margin-top: 5rem;
+  padding-top: 3rem;
+  text-align: center;
+}
+
+.footer__copyright {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Interactive Mesh Grid (Subtle Texture) */
+.mesh-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), black 0%, transparent 60%);
+  -webkit-mask-image: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), black 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Bento Grid System */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  gap: 1.5rem;
+  margin: 4rem 0;
+  grid-template-areas: 
+    "a a b c"
+    "d e e c";
+}
+
+@media screen and (max-width: 996px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: none;
+    padding: 0 1.5rem;
+  }
+}
+
+.bento-card {
+  background: #FFFFFF;
+  border: 1px solid #EAEAEA;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bento-card h3 {
+  margin: 0;
+  font-weight: 700;
+  color: #000000;
+  font-size: 1.35rem;
+}
+
+.bento-card p {
+  color: #444444;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.icon-wrapper {
+  width: 48px;
+  height: 48px;
+  background: #F9F9F9;
+  border: 1px solid #EAEAEA;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-wrapper svg {
+  width: 24px;
+  height: 24px;
+  fill: #000000;
+}
+
+.feature-0 { grid-area: a; }
+.feature-1 { grid-area: b; }
+.feature-2 { grid-area: c; }
+.feature-3 { grid-area: d; }
+.feature-4 { grid-area: e; }
+
+/* Selection */
+::selection {
+  background: rgba(0, 0, 0, 0.08);
+  color: #000000;
+}
+
+/* Tab Icons */
+.tab-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 6px;
+  filter: grayscale(1) brightness(0);
 }

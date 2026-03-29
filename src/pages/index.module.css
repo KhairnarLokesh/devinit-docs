@@ -1,18 +1,50 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
 .heroBanner {
-  padding: 4rem 0;
+  padding: 8rem 1rem 6rem;
+  background-color: #FFFFFF;
   text-align: center;
   position: relative;
   overflow: hidden;
+  perspective: 1000px;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.heroTitle {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.05em;
+  background: linear-gradient(180deg, #000 0%, #666 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  color: #000000; /* Absolute Black for legibility */
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .heroSubtitle {
+    font-size: 1.1rem;
+    padding: 0 1rem;
   }
 }
 
@@ -20,4 +52,166 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 6rem;
+  gap: 1.5rem;
+}
+
+@media screen and (max-width: 576px) {
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 2rem;
+    gap: 1rem;
+  }
+  .buttons > a {
+    width: 100%;
+  }
+}
+
+/* Terminal Mockup 3D */
+.terminalContainer {
+  max-width: 750px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid #EAEAEA;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.08);
+  transition: transform 0.1s ease-out;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.terminalContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 4px, 3px 100%;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.15;
+}
+
+@media screen and (max-width: 768px) {
+  .terminalContainer {
+    max-width: 100%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  .terminalBody {
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+.terminalHeader {
+  background: #F9F9F9;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #EAEAEA;
+  display: flex;
+  align-items: center;
+}
+
+.terminalDots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.terminalDots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.terminalTitle {
+  flex: 1;
+  text-align: center;
+  color: #666;
+  font-size: 0.85rem;
+  font-family: var(--ifm-font-family-monospace);
+  margin-right: 30px;
+}
+
+.terminalBody {
+  padding: 1.5rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #000; /* Absolute black for 'printed' look */
+  background: #fff;
+}
+
+.prompt {
+  color: #000000;
+  font-weight: 700;
+  margin-right: 0.75rem;
+}
+
+.terminalOutput {
+  color: #333; /* Darker gray for output visibility */
+}
+
+.features {
+  padding: 4rem 0;
+  background-color: #FFFFFF;
+}
+
+@media screen and (max-width: 996px) {
+  .heroTitle {
+    font-size: 3rem;
+  }
+  .heroSubtitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* Tech Marquee */
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  background: #FFFFFF;
+  border-top: 1px solid #EAEAEA;
+  border-bottom: 1px solid #EAEAEA;
+  padding: 1.5rem 0;
+  margin: 3rem 0;
+  display: flex;
+  white-space: nowrap;
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 4rem;
+  animation: marquee-scroll 40s linear infinite;
+}
+
+.marqueeItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #000000;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.buttonGlow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.buttonGlow:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }

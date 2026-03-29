@@ -47,11 +47,11 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          routeBasePath: '/', // Serve the docs at the site's root
+          routeBasePath: 'docs', // Changed from '/' to 'docs'
           editUrl:
             'https://github.com/KhairnarLokesh/DevInit/tree/main/',
         },
-        blog: false, // Disable the blog
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -65,8 +65,9 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
-        defaultMode: 'dark',
-        respectPrefersColorScheme: true,
+        defaultMode: 'light',
+        disableSwitch: true,
+        respectPrefersColorScheme: false,
       },
       navbar: {
         title: 'DevInit CLI',
@@ -89,18 +90,38 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: 'light',
         links: [
+          {
+            title: 'DevInit CLI',
+            items: [
+              {
+                html: `
+                  <div style="margin-top: 10px; color: #444; font-size: 0.9rem; line-height: 1.6;">
+                    Providing a modern, high-performance foundation for Next-Gen full-stack applications.
+                  </div>
+                `,
+              },
+            ],
+          },
           {
             title: 'Docs',
             items: [
               {
                 label: 'Introduction',
-                to: '/',
+                to: '/docs/',
               },
               {
                 label: 'Installation',
-                to: '/installation',
+                to: '/docs/installation',
+              },
+              {
+                label: 'Commands',
+                to: '/docs/commands',
+              },
+              {
+                label: 'Architecture',
+                to: '/docs/architecture',
               },
             ],
           },
@@ -111,10 +132,18 @@ const config = {
                 label: 'GitHub',
                 href: 'https://github.com/KhairnarLokesh/DevInit',
               },
+              {
+                label: 'Discord',
+                href: 'https://discord.gg/devinit',
+              },
+              {
+                label: 'Twitter / X',
+                href: 'https://twitter.com/devinit_cli',
+              },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} DevInit CLI. Built with stunning aesthetics.`,
+        copyright: `Copyright © ${new Date().getFullYear()} DevInit CLI. Built for modern developers.`,
       },
       prism: {
         theme: prismThemes.github,
