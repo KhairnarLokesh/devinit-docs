@@ -38,49 +38,12 @@ const ShieldIcon = () => (
 );
 
 function MeshGrid() {
-  const meshRef = useRef(null);
-  
-  useEffect(() => {
-    const handleGlobalMouseMove = (e) => {
-      if (meshRef.current) {
-        const x = (e.clientX / window.innerWidth) * 100;
-        const y = (e.clientY / window.innerHeight) * 100;
-        meshRef.current.style.setProperty('--mouse-x', `${x}%`);
-        meshRef.current.style.setProperty('--mouse-y', `${y}%`);
-      }
-    };
-    window.addEventListener('mousemove', handleGlobalMouseMove);
-    return () => window.removeEventListener('mousemove', handleGlobalMouseMove);
-  }, []);
-
-  return <div ref={meshRef} className="mesh-grid" />;
+  return <div className="mesh-grid" />;
 }
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   const terminalRef = useRef(null);
-
-  const handleTerminalMove = (e) => {
-    if (!terminalRef.current) return;
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice) return;
-
-    const rect = terminalRef.current.getBoundingClientRect();
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const rotateX = -(y - centerY) / 20;
-    const rotateY = (x - centerX) / 20;
-    terminalRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  };
-
-  const handleTerminalLeave = () => {
-    if (terminalRef.current) {
-      terminalRef.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
-    }
-  };
 
   return (
     <header className={clsx(styles.heroBanner)}>
@@ -109,8 +72,6 @@ function HomepageHeader() {
         
         <div 
           ref={terminalRef}
-          onMouseMove={handleTerminalMove}
-          onMouseLeave={handleTerminalLeave}
           className={styles.terminalContainer}
         >
           <div className={styles.terminalHeader}>
@@ -249,10 +210,6 @@ export default function Home() {
       title={`${siteConfig.title} | ${siteConfig.tagline}`}
       description="Next-Gen Stack Setup Assistant for Modern Web Development">
       <HomepageHeader />
-      <TechMarquee />
-      <main>
-        <FeatureSection />
-      </main>
     </Layout>
   );
 }
